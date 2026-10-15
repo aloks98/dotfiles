@@ -1,0 +1,25 @@
+[terminal.shell]
+program = "/opt/homebrew/bin/fish"
+args = ["--login"]
+
+[font]
+size = 13.0
+
+[font.normal]
+family = "BlexMono Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "BlexMono Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "BlexMono Nerd Font Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "BlexMono Nerd Font Mono"
+style = "Bold Italic"
+
+[selection]
+save_to_clipboard = true

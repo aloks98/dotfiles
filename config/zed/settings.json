@@ -1,0 +1,21 @@
+{
+  "icon_theme": "Zed (Default)",
+  "theme": "Ayu Dark",
+  "base_keymap": "JetBrains",
+  "project_panel": {
+    "dock": "left"
+  },
+  "terminal": {
+    "shell": {
+      "with_arguments": {
+        "program": "/opt/homebrew/bin/fish",
+        "args": [
+          "--login"
+        ]
+      }
+    }
+  },
+  "format_on_save": "on",
+  "ensure_final_newline_on_save": true,
+  "remove_trailing_whitespace_on_save": true
+}

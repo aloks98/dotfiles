@@ -65,3 +65,20 @@ Alacritty and Zed explicitly launch Homebrew fish. To change a new machine's acc
 After running install.sh, edits to linked config files update this repository. Review `git diff` before committing. Re-run install.sh when adding tracked files. Store personal overrides and secrets separately; review every change before pushing to a remote.
 
 No remote is configured by this setup.
+
+### tmux
+
+The config uses fish, mouse/trackpad scrolling, clipboard copying, and a cyan/purple status bar.
+Map Caps Lock to Control in macOS System Settings > Keyboard > Keyboard Shortcuts > Modifier Keys (choose each keyboard). Then Caps Lock + A is the prefix. Release it before the next key.
+
+Start: `tmux new -A -s main`. Prefix shortcuts:
+
+- `|` / `-`: side-by-side / stacked panes in the current directory.
+- Arrow keys or `h j k l`: navigate panes; uppercase `H J K L`: resize.
+- `c`: new window; `n` / `p`: next / previous window.
+- `z`: zoom pane; `d`: detach; `r`: reload config.
+- `[`: scrollback; `v` selects, `y` copies to the macOS clipboard, `q` exits.
+- Drag to select and copy; click panes to focus, drag borders to resize.
+- `a`: send Ctrl-a through to the shell.
+
+Reattach with `tmux attach -t main`. Sessions survive terminal closure, but not a reboot.

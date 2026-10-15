@@ -19,3 +19,5 @@ brew "zoxide"
 cask "alacritty"
 cask "zed"
 cask "font-blex-mono-nerd-font"
+
+brew "tmux"

@@ -80,6 +80,10 @@ Start: `tmux new -A -s main`. Prefix shortcuts:
 - `[`: scrollback; `v` selects, `y` copies to the macOS clipboard, `q` exits.
 - Drag to select and copy; click panes to focus, drag borders to resize.
 - `a`: send Ctrl-a through to the shell.
+- `Tab`: switch to the last window; repeat to toggle between two windows.
+- `/`: cyan/purple Markdown cheat sheet rendered by Glow with `less` as its pager. Scroll with arrows, `/` searches, and `q` closes. Source: `config/tmux/cheatsheet.md`; colors: `config/tmux/cheatsheet-style.json`. Install Glow through the Brewfile and run `bash install.sh` to link these files. The native prefix then `?` key list remains available.
+- `u`: name the current pane (for example, `server`, `tests`, or `logs`); an empty name resets to the running command. Titles appear along the top pane border only when a window has multiple panes and remain stable when fish changes its terminal title.
+- `Ctrl-p`: open a temporary fish scratch terminal in the current pane's directory. `exit` or Ctrl-d closes it; its shell state is not retained after closing. Standard tmux popup dismissal (Esc outside an application handling it) also closes the temporary shell, so finish commands before dismissing it.
 
 Reattach with `tmux attach -t main`. Sessions survive terminal closure, but not a reboot.
 

@@ -82,3 +82,23 @@ Start: `tmux new -A -s main`. Prefix shortcuts:
 - `a`: send Ctrl-a through to the shell.
 
 Reattach with `tmux attach -t main`. Sessions survive terminal closure, but not a reboot.
+
+### tmux plugins
+
+After restoring config symlinks, run `bash scripts/install-tmux-plugins.sh` to install TPM, Resurrect, Open and Continuum. Run inside tmux to also reload and check bindings. Plugin checkouts and saved sessions live under ~/.tmux, outside this repo.
+
+Continuum saves every 15 minutes while the tmux status bar is active and restores when a new tmux server starts. Start it after reboot with `tmux new -A -s main`; automatic restore does not launch tmux itself. Saves live in `~/.tmux/resurrect/` (the `last` symlink selects the latest snapshot), and plugin clones live in `~/.tmux/plugins/`. Layouts and directories are restored; arbitrary live process state is not preserved. Native tmux formatting displays PREFIX and COPY indicators.
+
+After Caps Lock + A (release before the next key): Ctrl-s saves, Ctrl-r restores, uppercase I installs plugins, uppercase U updates plugins. In copy mode, use v to select and o to open a URL/file; Shift-s searches selected text online. Mouse selection copies immediately, so use keyboard selection for Open.
+
+Keep TPM initialization at the bottom of tmux.conf and Continuum last in the plugin list.
+
+### tmux workspace managers
+
+`brew bundle --file Brewfile` installs Rust (to build tmux-ui-manager) and `okakoh/tap/tmux-manager`. Run `bash install.sh` to link the project configuration, then `bash scripts/install-tmux-plugins.sh` to clone/build the popup plugin. Clones and compiled plugin files stay in `~/.tmux/plugins/`.
+
+- Prefix then `e`: session/window/pane manager. Use `h j k l` or arrows to navigate, Enter to jump, `n` to create, `r` to rename, Space to move, and `q` to close. `x` asks before killing the selection.
+- Prefix then uppercase `P`: project manager in a new window. Enter launches/attaches the selected project; `/` filters; `s` opens settings; `?` shows help; `q` quits. The starter dotfiles workspace has fish and lazygit windows and attaches to an existing session without recreating it.
+- Prefix then `s` / `w`: original tmux session/window trees remain available.
+
+Project definitions are in `config/tmux-manager/config.yaml`, linked to `~/.config/tmux-manager/config.yaml`. Review changes made through the settings UI with `git diff`; keep private paths and secrets out of the shared config. Launch from fish directly with `env SHELL=/bin/sh tmux-manager`: its command wrapper needs a POSIX shell, while the shell tool explicitly starts fish.

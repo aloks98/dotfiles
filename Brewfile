@@ -21,3 +21,6 @@ cask "zed"
 cask "font-blex-mono-nerd-font"
 
 brew "tmux"
+brew "rust"
+tap "okakoh/tap"
+brew "okakoh/tap/tmux-manager"

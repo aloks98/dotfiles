@@ -1,0 +1,23 @@
+# Commands run through a POSIX shell; interactive terminals still use fish.
+tmux_binary: /opt/homebrew/bin/tmux
+tools:
+  shell:
+    window: shell
+    command: exec /opt/homebrew/bin/fish
+    after_exit: shell
+  git:
+    window: git
+    command: /opt/homebrew/bin/lazygit
+    after_exit: shell
+projects:
+  - name: dotfiles
+    path: ~/projects/dotfiles
+    session: dotfiles
+    default_window: shell
+    window_selection: configured
+    on_existing: attach
+    confirm_kill: true
+    failure_policy: stop
+    tools:
+      - shell
+      - git
